@@ -1,0 +1,33 @@
+package btw.item.blockitems;
+
+import btw.block.BTWBlocks;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.minecraft.src.Icon;
+import net.minecraft.src.ItemBlock;
+import net.minecraft.src.ItemStack;
+
+public class LeavesBlockItem extends ItemBlock {
+   public LeavesBlockItem(int iItemID) {
+      super(iItemID);
+      this.e(0);
+      this.a(true);
+   }
+
+   @Override
+   public int getMetadata(int iItemDamage) {
+      return iItemDamage | 4;
+   }
+
+   @Environment(EnvType.CLIENT)
+   @Override
+   public Icon getIconFromDamage(int iItemDamage) {
+      return BTWBlocks.bloodWoodLeaves.getIcon(0, iItemDamage);
+   }
+
+   @Environment(EnvType.CLIENT)
+   @Override
+   public int getColorFromItemStack(ItemStack itemStack, int iLayer) {
+      return 14163743;
+   }
+}
